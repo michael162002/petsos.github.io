@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mascota perdida - Bella, Dachshund en Huechuraba, Santiago">
+    <meta name="keywords" content="mascota perdida, perro, Dachshund, Huechuraba, Santiago">
+    <meta name="author" content="Daisy Larriega">
+    <title>🚨 MASCOTA PERDIDA - Bella</title>
+    
+    <!-- CSS Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ffffff, #ffffff);
+            padding: 40px 20px 20px 20px;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            position: relative;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .alert-banner {
+            background: linear-gradient(135deg, #ff4757, #ff3742);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 14px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .pet-section {
+            position: relative;
+            background: linear-gradient(145deg, #2c3e50, #34495e);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff4757;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+        }
+
+        .pet-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #8B4513, #A0522D);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            color: white;
+            object-fit: cover;
+        }
+
+        .pet-name {
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .pet-breed {
+            color: #ecf0f1;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-section {
+            padding: 25px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .info-icon {
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #4CAF50;
+            flex-shrink: 0;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-label {
+            font-size: 13px;
+            color: #7f8c8d;
+            font-weight: 600;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            font-size: 15px;
+            color: #2c3e50;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            padding: 25px;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .owner-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .phone-number {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 12px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+        }
+
+        .email {
+            font-size: 16px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .location {
+            font-size: 16px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 8px;
+        }
+
+        .emergency-message {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-top: 15px;
+        }
+
+        .heart {
+            color: #ff6b6b;
+            font-size: 20px;
+            margin: 0 5px;
+        }
+
+        .location-button {
+            background: linear-gradient(135deg, #ff6b6b, #ff5252);
+            border: none;
+            color: white;
+            padding: 18px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin: 20px 0 10px 0;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4);
+        }
+
+        .location-button:active {
+            transform: translateY(0);
+        }
+
+        .location-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .location-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .location-button:hover::before {
+            left: 100%;
+        }
+
+        .button-icon {
+            font-size: 20px;
+            margin-right: 10px;
+            animation: pulse-icon 2s infinite;
+        }
+
+        @keyframes pulse-icon {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .location-status {
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 13px;
+            margin-top: 10px;
+            display: none;
+            line-height: 1.4;
+        }
+
+        .location-status.show {
+            display: block;
+        }
+
+        .location-status.success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .location-status.error {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+        }
+
+        .location-status.loading {
+            background: rgba(255, 193, 7, 0.2);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 20px;
+            }
+            
+            .pet-name {
+                font-size: 28px;
+            }
+            
+            .phone-number {
+                font-size: 20px;
+            }
+
+            .location-button {
+                padding: 15px 25px;
+                font-size: 14px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border: 2px solid #000;
+            }
+            
+            .location-button {
+                display: none;
+            }
+            
+            .alert-banner {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo"><img src="logo.jpg"> Perfil Mascota </div>
+            <div class="tagline">Reuniendo familias</div>
+        </header>
+
+        <!-- Alert Banner -->
+        <div class="alert-banner" role="alert">
+            🚨 MASCOTA PERDIDA 🚨
+        </div>
+
+        <!-- Pet Information Section -->
+        <main class="pet-section">
+            <div class="status-badge">PERDIDA</div>
+            
+            <!-- Pet Photo - Cambia por imagen real si tienes -->
+            <img src="bella-foto.jpg" alt="Bella - Dachshund" class="pet-photo">
+            <!-- Para usar imagen real, reemplaza la línea anterior por: -->
+            <!-- <img src="jade-foto.jpg" alt="Jade - Pastor Alemán" class="pet-photo"> -->
+            
+            <h1 class="pet-name">Bella</h1>
+            <p class="pet-breed">Dachshund • Hembra</p>
+
+            <!-- Statistics Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-value">2</span>
+                    <span class="stat-label">Años</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">15</span>
+                    <span class="stat-label">Kg</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">Chica</span>
+                    <span class="stat-label">Tamaño</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">♀</span>
+                    <span class="stat-label">Hembra</span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Pet Details Section -->
+        <section class="info-section">
+            <h2 class="section-title">
+                📋 Información de la Mascota
+            </h2>
+
+            <div class="info-grid">
+                <article class="info-item">
+                    <div class="info-icon" aria-hidden="true">🎨</div>
+                    <div class="info-content">
+                        <div class="info-label">Colores</div>
+                        <div class="info-value">Negro y dorado</div>
+                    </div>
+                </article>
+
+                <article class="info-item">
+                    <div class="info-icon" aria-hidden="true">📝</div>
+                    <div class="info-content">
+                        <div class="info-label">Descripción</div>
+                        <div class="info-value">Pelaje corto dorado (Arlequin)</div>
+                    </div>
+                </article>
+
+                <article class="info-item">
+                    <div class="info-icon" aria-hidden="true">💎</div>
+                    <div class="info-content">
+                        <div class="info-label">Microchip</div>
+                        <div class="info-value">Sí - Número: 123456789</div>
+                    </div>
+                </article>
+
+                <article class="info-item">
+                    <div class="info-icon" aria-hidden="true">🏷️</div>
+                    <div class="info-content">
+                        <div class="info-label">Collar (ARNES)</div>
+                        <div class="info-value">verde con placa (QR)</div>
+                    </div>
+                </article>
+
+                <article class="info-item">
+                    <div class="info-icon" aria-hidden="true">📍</div>
+                    <div class="info-content">
+                        <div class="info-label">Zona de búsqueda</div>
+                        <div class="info-value">Huechuraba, Santiago</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 class="contact-title">💬 CONTACTO DE EMERGENCIA</h2>
+            
+            <div class="owner-name">Daisy Larriega</div>
+            
+            <div class="phone-number">
+                <a href="tel:+56946659247" style="color: inherit; text-decoration: none;">
+                    📞 +569 34006981
+                </a>
+            </div>
+            
+            <div class="email">
+                <a href="mailto:michaelamhed12@gmail.com" style="color: inherit; text-decoration: none;">
+                    📧 deisy.larriega@gmail.com
+                </a>
+            </div>
+            
+            <div class="location">📍Magnolios poniente 1278,Pudahuel,Santiago</div>
+
+            <div class="emergency-message">
+                <strong>Si encuentras a Bella, llama inmediatamente.</strong><br>
+                Cualquier información es valiosa.<span class="heart">❤️</span><br>
+                ¡Bella está esperando volver a casa! 🏠
+            </div>
+
+            <!-- Location Report Button -->
+            <button class="location-button" onclick="reportarUbicacion()" id="locationBtn">
+                <span class="button-icon">📍</span>
+                ¡La vi aquí! Reportar ubicación
+            </button>
+
+            <!-- Status Message -->
+            <div id="locationStatus" class="location-status" role="status" aria-live="polite">
+                <span id="statusMessage"></span>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Función principal para reportar ubicación
+        function reportarUbicacion() {
+            const statusDiv = document.getElementById('locationStatus');
+            const statusMessage = document.getElementById('statusMessage');
+            const button = document.getElementById('locationBtn');
+            
+            // Mostrar mensaje de carga
+            mostrarEstado('loading', '📡 Obteniendo ubicación...', button, statusDiv, statusMessage);
+
+            // Verificar si el navegador soporta geolocalización
+            if (!navigator.geolocation) {
+                mostrarEstado('error', 
+                    '❌ Tu navegador no soporta geolocalización.<br><strong>Llama directamente:</strong><br>📞 +569 34006981',
+                    button, statusDiv, statusMessage
+                );
+                return;
+            }
+
+            // Opciones de geolocalización
+            const opciones = {
+                enableHighAccuracy: true,  // Usar GPS cuando sea posible
+                timeout: 15000,           // 15 segundos de timeout
+                maximumAge: 60000         // Cache por 1 minuto
+            };
+
+            // Obtener ubicación
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    // Éxito - ubicación obtenida
+                    manejarExitoUbicacion(position, button, statusDiv, statusMessage);
+                },
+                function(error) {
+                    // Error - no se pudo obtener ubicación
+                    manejarErrorUbicacion(error, button, statusDiv, statusMessage);
+                },
+                opciones
+            );
+        }
+
+        // Función para manejar éxito en obtención de ubicación
+        function manejarExitoUbicacion(position, button, statusDiv, statusMessage) {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            const accuracy = position.coords.accuracy;
+            const timestamp = new Date();
+
+            // Datos a enviar (normalmente al servidor)
+            const datosReporte = {
+                mascota_id: 'pet_002',
+                mascota_nombre: 'Bella',
+                latitud: lat,
+                longitud: lng,
+                precision: accuracy,
+                timestamp: timestamp.toISOString(),
+                direccion_google_maps: `https://maps.google.com/maps?q=${lat},${lng}`,
+                reportado_por: 'Usuario anónimo',
+                navegador: navigator.userAgent
+            };
+
+            // Simular envío al servidor (reemplazar por tu API real)
+            setTimeout(() => {
+                const mensajeExito = `
+                    ✅ <strong>¡Ubicación reportada exitosamente!</strong><br>
+                    📍 Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}<br>
+                    🎯 Precisión: ${Math.round(accuracy)} metros<br>
+                    📅 ${timestamp.toLocaleString('es-CL')}<br><br>
+                    <strong>¡Gracias por ayudar a encontrar a Jade!</strong><br>
+                    El dueño ha sido notificado de tu reporte.
+                `;
+                
+                mostrarEstado('success', mensajeExito, button, statusDiv, statusMessage);
+                
+                // Log para desarrollo (quitar en producción)
+                console.log('📍 Ubicación reportada:', datosReporte);
+                
+                // Opcional: mostrar opciones adicionales
+                setTimeout(() => {
+                    mostrarOpcionesAdicionales(lat, lng);
+                }, 2000);
+                
+            }, 1500); // Simular delay del servidor
+        }
+
+        // Función para manejar errores de geolocalización
+        function manejarErrorUbicacion(error, button, statusDiv, statusMessage) {
+            let errorMessage = '';
+            
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    errorMessage = `
+                        ❌ <strong>Acceso a ubicación denegado.</strong><br>
+                        Para reportar la ubicación necesitas:<br>
+                        1. Permitir acceso a ubicación<br>
+                        2. Volver a hacer clic en el botón<br><br>
+                        <strong>O llama directamente:</strong><br>
+                        📞 +569 34006981
+                    `;
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    errorMessage = `
+                        ❌ <strong>Ubicación no disponible.</strong><br>
+                        Verifica que tengas:<br>
+                        • GPS activado<br>
+                        • Conexión a internet<br>
+                        • Estés en un lugar abierto<br><br>
+                        <strong>O llama directamente:</strong><br>
+                        📞 +569 934006981
+                    `;
+                    break;
+                case error.TIMEOUT:
+                    errorMessage = `
+                        ❌ <strong>Tiempo agotado.</strong><br>
+                        La ubicación tardó mucho en obtenerse.<br>
+                        Vuelve a intentar o llama directamente:<br>
+                        📞 +569 934006981
+                    `;
+                    break;
+                default:
+                    errorMessage = `
+                        ❌ <strong>Error desconocido.</strong><br>
+                        Código: ${error.code}<br>
+                        Vuelve a intentar o llama directamente:<br>
+                        📞 +569 934006981
+                    `;
+                    break;
+            }
+            
+            mostrarEstado('error', errorMessage, button, statusDiv, statusMessage);
+        }
+
+        // Función auxiliar para mostrar estados
+        function mostrarEstado(tipo, mensaje, button, statusDiv, statusMessage) {
+            // Actualizar mensaje
+            statusMessage.innerHTML = mensaje;
+            
+            // Mostrar div de estado
+            statusDiv.className = `location-status show ${tipo}`;
+            
+            // Actualizar botón según el estado
+            switch(tipo) {
+                case 'loading':
+                    button.disabled = true;
+                    button.innerHTML = '<span class="button-icon">⏳</span>Obteniendo ubicación...';
+                    break;
+                case 'success':
+                    button.disabled = false;
+                    button.innerHTML = '<span class="button-icon">✅</span>¡Ubicación reportada!';
+                    break;
+                case 'error':
+                    button.disabled = false;
+                    button.innerHTML = '<span class="button-icon">📍</span>Reintentar ubicación';
+                    break;
+            }
+        }
+
+        // Función opcional para mostrar opciones adicionales
+        function mostrarOpcionesAdicionales(lat, lng) {
+            const mensaje = `¡Hola Michael! Vi a Jade en esta ubicación: https://maps.google.com/maps?q=${lat},${lng}`;
+            const whatsappUrl = `https://wa.me/56934006981?text=${encodeURIComponent(mensaje)}`;
+            
+            if (confirm('¿Quieres enviar un WhatsApp automático con la ubicación exacta?')) {
+                window.open(whatsappUrl, '_blank');
+            }
+        }
+
+        // Inicialización cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🐾 Sistema PetFind iniciado');
+            console.log('📍 Geolocalización disponible:', navigator.geolocation ? 'Sí ✅' : 'No ❌');
+            console.log('🌐 Navegador:', navigator.userAgent);
+            
+            // Verificar si hay parámetros URL para auto-reportar
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('auto-report') === 'true') {
+                console.log('🚀 Auto-reporte activado');
+                setTimeout(reportarUbicacion, 1000);
+            }
+        });
+
+        // Funciones adicionales para desarrollo
+        function simularUbicacion() {
+            // Función para testing - simula ubicación en Santiago
+            const position = {
+                coords: {
+                    latitude: -33.4489,
+                    longitude: -70.6693,
+                    accuracy: 10
+                }
+            };
+            manejarExitoUbicacion(position, 
+                document.getElementById('locationBtn'),
+                document.getElementById('locationStatus'),
+                document.getElementById('statusMessage')
+            );
+        }
+
+        // Exportar funciones globales para debugging
+        window.PetFind = {
+            reportarUbicacion,
+            simularUbicacion
+        };
+    </script>
+</body>
+</html>
